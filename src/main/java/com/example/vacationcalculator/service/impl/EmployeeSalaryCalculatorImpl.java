@@ -9,9 +9,12 @@ import java.math.RoundingMode;
 
 @Component
 public class EmployeeSalaryCalculatorImpl implements EmployeeSalaryCalculator {
+
+    private final double AVERAGE_NUMBER_OF_DAYS_IN_MONTH = 29.3;
+
     @Override
     public double calculation(EmployeeSalary employeeSalary) {
-        double result = (employeeSalary.getAverageSalary() / 29.3) * employeeSalary.getVacationDays();
+        double result = (employeeSalary.getAverageSalary() / AVERAGE_NUMBER_OF_DAYS_IN_MONTH) * employeeSalary.getVacationDays();
         double roundedResult = BigDecimal.valueOf(result)
                 .setScale(2, RoundingMode.HALF_UP)
                 .doubleValue();
